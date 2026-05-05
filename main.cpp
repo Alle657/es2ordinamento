@@ -1,34 +1,32 @@
-#include <stdio.h>
-#define N 10
-
-void stampaArray(int v[]) {
-    for(int i = 0; i < N; i++)
-        printf("%d ", v[i]);
-    printf("\n");
-}
+#include <iostream>
+using namespace std;
 
 int main() {
-    int v[N] = {3, 8, 12, 15, 20, 27, 31, 40, 50};
-    int nuovo;
+    int arr[10] = {5, 10, 15, 20, 25, 30, 35, 40, 45};
+    int nuovoValore;
 
-    printf("Array iniziale:\n");
-    for(int i = 0; i < N-1; i++)
-        printf("%d ", v[i]);
+    cout << "Array iniziale:\n";
+    for (int i = 0; i < 9; i++) {
+        cout << arr[i] << " ";
+    }
 
-    printf("\nInserisci nuovo codice prodotto: ");
-    scanf("%d", &nuovo);
+    cout << "\nInserisci il 10° valore: ";
+    cin >> nuovoValore;
 
-    int i = N - 2;
+    int i = 8;
 
-    while(i >= 0 && v[i] > nuovo) {
-        v[i+1] = v[i];
+
+    while (i >= 0 && arr[i] > nuovoValore) {
+        arr[i + 1] = arr[i];
         i--;
     }
 
-    v[i+1] = nuovo;
+    arr[i + 1] = nuovoValore;
 
-    printf("Array aggiornato:\n");
-    stampaArray(v);
+    cout << "\nArray dopo inserimento ordinato:\n";
+    for (int j = 0; j < 10; j++) {
+        cout << arr[j] << " ";
+    }
 
     return 0;
 }
